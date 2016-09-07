@@ -2,9 +2,6 @@
 
 use Mojolicious::Lite;
 
-# Documentation browser under "/perldoc"
-plugin 'PODRenderer';
-
 get '/' => sub {
 	my $c = shift;
 	$c->render(template => 'index');
@@ -16,16 +13,35 @@ __DATA__
 
 @@ index.html.ep
 % layout 'default';
-% title 'Welcome';
-<h1>Welcome to the Mojolicious real-time web framework!</h1>
-To learn more, you can browse through the documentation
-<%= link_to 'here' => '/perldoc' %>.
+% title 'Index';
+<h1>Welcome to CandyAccounting!</h1>
+<p>
+This site will document and explain how I personally use
+<%= link_to Ledger => 'http://ledger-cli.org/' %>. No claims of
+proper accounting procedures are made :)
+</p>
+
+<h2>Sections</h2>
+<ul>
+	<li>Terms and Concepts</li>
+	<li>Setting up Ledger</li>
+	<li>Opening the Books</li>
+	<li>Getting Paid</li>
+	<li>Budgeting</li>
+	<li>Loans</li>
+	<li>Paypal</li>
+</ul>
+
+<h2>Contact</h2>
+
+You can find me (CandyAngel) in #ledger on
+<%= link_to 'Freenode' => 'https://freenode.net/' %>.
 
 @@ layouts/default.html.ep
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><%= title %></title>
+		<title><%= title %> - CandyAccounting</title>
 	</head>
 
 	<body>
